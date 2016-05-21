@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'Task.php';
+require_once 'src/Task.php';
 
 //usuwam wszystkie zadania
 if (isset($_POST['delete'])) {

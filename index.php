@@ -11,7 +11,7 @@ if (isset($_POST['delete'])) {
 if (isset($_SESSION['taskList'])) {
     $taskTable = unserialize($_SESSION['taskList']);
 } else {
-    $taskTable = false;
+    $taskTable = array();
 }
 
 //dodaje do tablicy tasków nowy objekt klasy Task i zapisuje tablice w sesji
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 //ustawiam Task jako zakonczony i zapisuje zmiane do sesji
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['finish'])) {
     foreach ($taskTable as $value) {
         if ($value->getTaskName() == $_GET['finish']) {
             $value->finishTask();
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 <th></th>
             </tr>
             <?php
-            if ($taskTable == false) {
+            if (empty($taskTable)) {
                 echo "Brak zadań"."<br><br>";
             } else {
                 foreach ($taskTable as $key => $value) {

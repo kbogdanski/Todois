@@ -25,7 +25,7 @@ function displayDate () {
 <head>
     <meta charset="utf-8">
     <title>Warsztaty nr 2 - Aplikacja Todois</title>
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="container" style="margin-top: 25px">

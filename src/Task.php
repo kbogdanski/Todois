@@ -6,7 +6,6 @@ class Task {
     private $status;
     private $prioryty = null;
     private $date = null;
-    private $overdue;
 
     public function setTaskName($taskName) {
         $this->taskName = $taskName;
@@ -53,12 +52,12 @@ class Task {
             $currentDate = strtotime('now');
             $deadline = strtotime($this->getDate());
             if ($currentDate > $deadline) {
-                return $this->overdue = true;
+                return true;
             } else {
-                return $this->overdue = false;
+                return false;
             }
         } else {
-            return $this->overdue = false;
+            return false;
         }
     }
 
@@ -68,7 +67,6 @@ class Task {
         $this->status = false;
         $this->setPrioryty($prioryty);
         $this->setDate($date);
-        $this->overdue = false;
     }
 
     public function displayTask () {
